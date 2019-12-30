@@ -11,6 +11,14 @@ $template_parts = array(
     ),
     'Disabled' => array(
         'banner' => 'Home Banner',
+        'about' => 'About',
+        'arrivals' => 'New Arrivals',
+        'bselling' => 'Best Selling',
+        'find' => 'Find a store',
+        'onsale' => 'On Sales',
+        'gallery' => 'Gallery',
+        'contact' => 'Contact',
+        'map' => 'Map',
     ),
 );
 /*Variables*/

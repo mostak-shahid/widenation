@@ -1,8 +1,11 @@
+body{font-family: 'Karla', sans-serif;}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{font-family: 'KoHo', sans-serif;}
 a{-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-o-transition:all .3s ease-out;transition:all .3s ease-out;text-decoration:none}
 a:visited,a:hover,a:active,a:focus{text-decoration:none}
 .alignleft {float: left; margin: 0.5em 1em 0.5em 0; }
 .alignright {float: right; margin: 0.5em 0 0.5em 1em; }
 .aligncenter {display: block; margin-left: auto; margin-right: auto; }
+.social-menu{margin-bottom: 0;}
 .screen-reader-text{display:none}
 .se-pre-con{position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:99999} 
 .se-pre-con > *{position:fixed;top:50%;left:0;right:0;margin:0 auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%)}

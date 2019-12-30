@@ -30,11 +30,29 @@ else $page_id = get_the_ID();
     </div>
 <?php endif; ?>
 	<?php 
+	$topbar_class=$widenation_options['sections-topbar-class']; 
 	$header_class=$widenation_options['sections-header-class']; 
 	$title_class=$widenation_options['sections-title-class']; 
 	$breadcrumbs_class=$widenation_options['sections-breadcrumbs-class']; 
 	?>
-	<header id="main-header" class="<?php echo $header_class?>">
+	<section id="topbar" class="d-none d-lg-block <?php if(@$widenation_options['sections-topbar-background-type'] == 1) echo @$widenation_options['sections-topbar-background'] . ' ';?><?php if(@$widenation_options['sections-topbar-color-type'] == 1) echo @$widenation_options['sections-topbar-color'];?> <?php echo $topbar_class?>">
+		<div class="content-wrap">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-4 text-left">
+						<?php echo do_shortcode( "[social-menu display='inline' title='0']" ); ?>
+					</div>
+					<div class="col-lg-4 text-center">
+						<?php echo do_shortcode( "[phone index=1]" ); ?>
+					</div>
+					<div class="col-lg-4 text-right">
+						<?php echo do_shortcode( "[email index=1]" ); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<header id="main-header" class="<?php if(@$widenation_options['sections-header-background-type'] == 1) echo @$widenation_options['sections-header-background'] . ' ';?><?php if(@$widenation_options['sections-header-color-type'] == 1) echo @$widenation_options['sections-header-color'];?> <?php echo $header_class?>">
 		<div class="content-wrap">
 			<div class="container">
 				<nav class="navbar navbar-expand-md navbar-light navbar-custom-bg">			

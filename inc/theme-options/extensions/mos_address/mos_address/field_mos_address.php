@@ -44,6 +44,7 @@ if (!class_exists('ReduxFramework_mos_address')) {
                     'title' => true,
                     'description' => true,
                     'map_link' => true,
+                    'embeded_link' => true,
                     'review_link' => true,
                     'review_link_img' => true,
                     'review_link_img_h' => true,
@@ -81,6 +82,7 @@ if (!class_exists('ReduxFramework_mos_address')) {
                         'description' => '',
                         'target' => '',
                         'map_link' => '',
+                        'embeded_link' => '',
                         'review_link' => '',
                         'review_link_img' => '',
                         'review_link_img_h' => '',
@@ -130,6 +132,9 @@ if (!class_exists('ReduxFramework_mos_address')) {
                     }
                     if ( $this->field[ 'show' ][ 'map_link' ] ) {
                         echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-map_link_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][map_link]" value="' . esc_attr($slide['map_link']) . '" placeholder="'.esc_attr__('Map link', 'widenation').'" class="full-text" /></li>';
+                    }
+                    if ( $this->field[ 'show' ][ 'embeded_link' ] ) {
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-embeded_link_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][embeded_link]" value="' . esc_attr($slide['embeded_link']) . '" placeholder="'.esc_attr__('Embeded Map link', 'widenation').'" class="full-text" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'review_link' ] ) {
                         echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-review_link_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][review_link]" value="' . esc_attr($slide['review_link']) . '" class="full-text" placeholder="'.esc_html__('Review Link', 'widenation').'" /></li>';
@@ -191,6 +196,10 @@ if (!class_exists('ReduxFramework_mos_address')) {
                 if ( $this->field[ 'show' ][ 'map_link' ] ) {
                     $placeholder = (isset($this->field['placeholder']['map_link'])) ? esc_attr($this->field['placeholder']['map_link']) : __( 'Map link', 'widenation' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-map_link_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][map_link]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text" /></li>';   
+                }
+                if ( $this->field[ 'show' ][ 'embeded_link' ] ) {
+                    $placeholder = (isset($this->field['placeholder']['embeded_link'])) ? esc_attr($this->field['placeholder']['embeded_link']) : __( 'Embeded Map link', 'widenation' );
+                    echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-embeded_link_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][embeded_link]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text" /></li>';   
                 }
                 if ( $this->field[ 'show' ][ 'review_link' ] ) {             
                     $placeholder = (isset($this->field['placeholder']['review_link'])) ? esc_attr($this->field['placeholder']['review_link']) : __( 'Review Link', 'widenation' );
