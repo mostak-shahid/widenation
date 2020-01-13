@@ -26,7 +26,7 @@
 										<?php $raw_url = wp_get_attachment_url( $attachment_id ) ?>	
 										<div class="col-md-6 col-lg-<?php echo $layout ?> text-center">
 											<div class="img-container">
-												<a href="<?php if ($large_image_size == 'max') echo aq_resize($raw_url, 1920); elseif ($large_image_size == 'container') echo aq_resize($raw_url, 1140); else echo $raw_url ?>" data-fancybox="gallery" data-caption="">
+												<a class="preview position-relative d-block" href="<?php if ($large_image_size == 'max') echo aq_resize($raw_url, 1920); elseif ($large_image_size == 'container') echo aq_resize($raw_url, 1140); else echo $raw_url ?>" data-fancybox="gallery" data-caption="">
 													<?php 
 													$attachment_alt = get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ); 
 													if ($image_width OR $image_height ) $img_url = aq_resize($raw_url, $image_width, $image_height, true);
@@ -38,7 +38,7 @@
 										</div>
 									<?php endforeach; ?>
 								</div>
-								<div class="galleryHolder"></div>
+								<nav class="navigation pagination" role="navigation" aria-label=""><div class="galleryHolder"></div></nav>
 							<?php endif; ?>
 
 					</div>
@@ -57,8 +57,8 @@ jQuery(document).ready(function($) {
 	$("div.galleryHolder").jPages({
         containerID: "gallery",
         perPage: <?php echo $image_per_page ?>,
-        previous: "prev",
-        next: "next",
+        previous: "Prev",
+        next: "Next",
     });
     if ($(".galleryHolder a").length <= 3){
     	$('.galleryHolder').hide();

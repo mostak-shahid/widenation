@@ -55,7 +55,7 @@ else $page_id = get_the_ID();
 	<header id="main-header" class="<?php if(@$widenation_options['sections-header-background-type'] == 1) echo @$widenation_options['sections-header-background'] . ' ';?><?php if(@$widenation_options['sections-header-color-type'] == 1) echo @$widenation_options['sections-header-color'];?> <?php echo $header_class?>">
 		<div class="content-wrap">
 			<div class="container">
-				<nav class="navbar navbar-expand-md navbar-light navbar-custom-bg">			
+				<nav class="navbar navbar-expand-lg navbar-dark navbar-custom-bg">			
 					<a class="navbar-brand" href="<?php echo home_url(); ?>">
 						<span class="<?php if($widenation_options['logo']['id']) echo 'd-md-none';?>">
 						<?php if (has_site_icon()) : ?>
@@ -81,8 +81,8 @@ else $page_id = get_the_ID();
 						'container_id'    => 'collapsibleNavbar',
 						'container_class' => 'collapse navbar-collapse',
 						'menu_id'         => false,
-						'menu_class'      => 'navbar-nav ml-auto',
-						'depth'           => 2,
+						'menu_class'      => 'navbar-nav ml-auto mega-menu',//mos-menu or mega-menu
+						// 'depth'           => 2,
 						'fallback_cb'     => 'bs4navwalker::fallback',
 						//'walker'          => new bs4navwalker()
 						]);
@@ -91,7 +91,11 @@ else $page_id = get_the_ID();
 			</div>
 		</div>
 	</header>
-	<?php if (get_post_meta($page_id, '_widenation_banner_enable', true )) : ?>
+	<?php
+	// var_dump($page_id);
+	// var_dump(get_post_meta($page_id, '_widenation_banner_enable', true ));
+	?>
+	<?php if (get_post_meta($page_id, '_widenation_banner_enable', true ) OR is_404() OR is_single() OR is_shop()) : ?>
 		<?php 
 		$banner_img = get_post_meta( get_the_ID(), '_widenation_banner_cover', true ); 
 		$banner_mp4 = get_post_meta( get_the_ID(), '_widenation_banner_mp4', true ); 
@@ -121,6 +125,8 @@ else $page_id = get_the_ID();
 					$title = get_the_title($page_for_posts);
 					elseif (is_404()) :
 						$title = '404 Page';
+					elseif (is_shop()) :
+						$title = get_the_title(get_option( 'woocommerce_shop_page_id' ));
 					else :
 						$title = get_the_title();
 					endif; 

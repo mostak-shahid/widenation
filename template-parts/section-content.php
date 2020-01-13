@@ -2,7 +2,7 @@
 global $widenation_options;
 $class = $widenation_options['sections-content-class'];
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
-do_action( 'action_avobe_blank', $page_details ); 
+do_action( 'action_avobe_content', $page_details ); 
 ?>
 <section id="page" class="page-content <?php if(@$widenation_options['sections-content-background-type'] == 1) echo @$widenation_options['sections-content-background'] . ' ';?><?php if(@$widenation_options['sections-content-color-type'] == 1) echo @$widenation_options['sections-content-color'];?> <?php echo $class ?>">
 	<div class="content-wrap">
@@ -17,4 +17,4 @@ do_action( 'action_avobe_blank', $page_details );
 		</div>	
 	</div>
 </section>
-<?php do_action( 'action_below_blank', $page_details  ); ?>
+<?php do_action( 'action_below_content', $page_details  ); ?>

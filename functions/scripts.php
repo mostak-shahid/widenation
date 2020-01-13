@@ -31,6 +31,11 @@ function widenation_enqueue_scripts() {
 	wp_enqueue_style( 'jquery.fancybox.min' );
 	wp_register_script('jquery.fancybox.min', get_template_directory_uri() . '/plugins/fancybox/jquery.fancybox.min.js', 'jquery');
 	wp_enqueue_script( 'jquery.fancybox.min' );
+	
+	wp_register_style( 'megamenu', get_template_directory_uri() . '/plugins/megamenu/css/megamenu.css' );
+	wp_enqueue_style( 'megamenu' );
+	wp_register_script('megamenu', get_template_directory_uri() . '/plugins/megamenu/js/megamenu.js', 'jquery');
+	wp_enqueue_script( 'megamenu' );
 
 	wp_register_script('jquery.lazy.min', get_template_directory_uri() . '/plugins/jquery.lazy-master/jquery.lazy.min.js', 'jquery');
 	wp_enqueue_script( 'jquery.lazy.min' );

@@ -2,6 +2,10 @@
 function widenation_metaboxes() {
     $prefix = '_widenation_';
     global $widenation_options,$template_parts;
+    $machine_categories = mos_get_terms ("machine-category");
+    foreach($machine_categories as $machine_category){
+        $m_cat[$machine_category['term_id']] =  $machine_category['name'];
+    }
     $blog_id = get_option( 'page_for_posts' );
     if ($_GET['post'] == $blog_id){
         $enabled = ($widenation_options['archive-page-sections']['Enabled']) ? $widenation_options['archive-page-sections']['Enabled'] : $template_parts['Enabled'];
@@ -27,6 +31,19 @@ function widenation_metaboxes() {
             'Disabled' => $disabled, 
         ),
     ));    
+    $mechine_details = new_cmb2_box(array(
+        'id' => $prefix . 'mechine_details',
+        'title' => __('Mechine Category', 'cmb2'),
+        'object_types' => array('page'),
+        //'show_on'      => array( 'key' => 'page-template', 'value' => 'page-template/lightbox-gallery-page.php' ),
+    )); 
+    $mechine_details->add_field( array(
+        'name' => __( 'Select Category', 'cmb2' ),
+        'id'   => $prefix . 'mechine_cat',
+        'type'             => 'select',
+        'show_option_none' => true,
+        'options'          => $m_cat,
+    )); 
     $banner_details = new_cmb2_box(array(
         'id' => $prefix . 'banner_details',
         'title' => __('Banner Details', 'cmb2'),

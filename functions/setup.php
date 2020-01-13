@@ -19,6 +19,7 @@ if ( ! function_exists( 'widenation_setup' ) ) :
 		register_nav_menus( array(
 			'mainmenu' => __('Main Menu', 'widenation'),
 			'mobilemenu' => __('Mobile Menu', 'widenation'),
+			'mechinemenu' => __('Mechine Menu', 'widenation'),
 		));
 		add_theme_support( 'html5', array(
 			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'

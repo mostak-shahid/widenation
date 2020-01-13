@@ -7,7 +7,11 @@ $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_pa
   <footer id="footer" class="<?php if(@$widenation_options['sections-footer-background-type'] == 1) echo @$widenation_options['sections-footer-background'] . ' ';?><?php if(@$widenation_options['sections-footer-color-type'] == 1) echo @$widenation_options['sections-footer-color'];?> <?php echo $class ?>">
     <div class="content-wrap">
       <div class="container">
-        <?php echo do_shortcode( $widenation_options['sections-footer-content'] ); ?>
+        <div class="row align-items-center">
+          <div class="col-lg-7"><?php echo do_shortcode( $widenation_options['sections-footer-content'] ); ?></div>
+          <div class="col-lg-5 text-center text-lg-right"><?php echo do_shortcode( "[social-menu display='inline' title='0']" ); ?></div>
+        </div>
+        
       </div>
     </div>
   </footer>
@@ -29,5 +33,6 @@ if ($widenation_options['misc-back-top']) :
     <?php echo $widenation_options['misc-settings-js'] ?> 
   </script>
 <?php endif; ?>
+
 </body>
 </html>

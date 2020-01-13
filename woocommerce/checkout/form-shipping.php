@@ -19,7 +19,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <div class="woocommerce-shipping-fields">
-	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
+	<?php // if ( true === WC()->cart->needs_shipping_address() ) : ?>
 
 		<h3 id="ship-to-different-address">
 			<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
@@ -45,7 +45,7 @@ defined( 'ABSPATH' ) || exit;
 
 		</div>
 
-	<?php endif; ?>
+	<?php // endif; ?>
 </div>
 <div class="woocommerce-additional-fields">
 	<?php do_action( 'woocommerce_before_order_notes', $checkout ); ?>

@@ -44,6 +44,11 @@ do_action( 'woocommerce_before_main_content' );
 	do_action( 'woocommerce_archive_description' );
 	?>
 </header>
+<section id="page" class="page-content">
+	<div class="content-wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 order-lg-last">
 <?php
 if ( woocommerce_product_loop() ) {
 
@@ -87,19 +92,29 @@ if ( woocommerce_product_loop() ) {
 	 */
 	do_action( 'woocommerce_no_products_found' );
 }
-
-/**
- * Hook: woocommerce_after_main_content.
- *
- * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
- */
-do_action( 'woocommerce_after_main_content' );
-
+?>
+</div>
+				<div class="col-lg-4  order-lg-first">
+<?php
 /**
  * Hook: woocommerce_sidebar.
  *
  * @hooked woocommerce_get_sidebar - 10
  */
 do_action( 'woocommerce_sidebar' );
+?>				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
+<?php
+/**
+ * Hook: woocommerce_after_main_content.
+ *
+ * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+ */
+do_action( 'woocommerce_after_main_content' );
+?>
+<?php
 get_footer( 'shop' );

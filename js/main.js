@@ -24,15 +24,32 @@ jQuery(document).ready(function($){
         $("html, body").animate({ scrollTop: 0 }, 600);
         return false;
     });
+    var w_width = $(window).width();
     $(".navbar-nav > li:has('ul')").prepend("<span class='drop_down_icon fa fa-angle-down'></span>");
-    
+	if (w_width < '992'){
+		console.log(w_width);
+		$(".navbar-nav li:has('ul')").prepend("<span class='drop_down_icon fa fa-angle-down'></span>");
+	}
     $(".drop_down_icon").click(function() {
         $(this).siblings("ul").slideToggle();
     }); 
+
+	/*span = document.querySelector('.menu-item-has-children');
+	span.addEventListener('click', function (e) {
+	// span.click(function(e) {
+	    if (e.offsetX > span.offsetWidth) {
+	        //span.className = 'c2';
+	        span.classList.add('open');
+	    } else {
+	        //span.className = 'c1';
+	        span.classList.add('close');
+	    }
+	});*/
+
     new WOW().init();
     $('#section-banner-owl').owlCarousel({
         loop: true,
-        nav: true,
+        nav: false,
         dots: true,
         items:1,
         margin: 0,              
@@ -63,6 +80,7 @@ jQuery(document).ready(function($){
     $('#section-banner-owl .owl-next').html('<i class="fa fa-angle-right"></i>');
     $('#section-feature .slider-part .owl-prev').html('<i class="fa fa-arrow-circle-left"></i>');
     $('#section-feature .slider-part .owl-next').html('<i class="fa fa-arrow-circle-right"></i>');
+
 });
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {

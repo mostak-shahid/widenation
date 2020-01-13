@@ -18,6 +18,15 @@ function widenation_widgets_init(){
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 		'after_widget' => '</div>'
+	));
+	register_sidebar(array(
+		'id' => 'sidebar-shop',
+		'name' => __('Sidebar for Shop', 'widenation'),
+		//'description' => __('Add widgets here to appear in your Left SideBar', 'widenation'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+		'after_widget' => '</div>'
 	));	
 	register_sidebar(array(
 		'id' => 'footer_1',

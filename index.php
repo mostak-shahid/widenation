@@ -11,10 +11,27 @@ $sections = (@$from_page_option['Enabled'])?$from_page_option['Enabled']:$from_t
 	<div class="content-wrap">
 		<div class="container">
 			<?php if ( have_posts() ) :?>
-				<div id="blogs" class="row">
+				<div class="row blogs">
 					<?php while ( have_posts() ) : the_post(); ?>
-						<div class="col-lg-6">							
-							<?php get_template_part( 'content', get_post_format() ) ?>
+						<div class="col-lg-4 col-md-6 mb-4 wow fadeInDown">
+				        	<div class="blog-unit w-100 h-100 position-relative">
+				        	<?php if (has_post_thumbnail()) : ?>
+				        		<div class="part-img mb-30">
+				        			<img class="img-fluid img-blog" src="<?php echo aq_resize(get_the_post_thumbnail_url(),380,300,true) ?>" alt="<?php echo get_the_title(); ?>">
+				        			<div class="date">
+				        				<span class="number"><?php echo get_the_date('d') ?></span>
+				        				<span class="text"><?php echo get_the_date('M') ?></span>
+				        			</div>
+				        		</div>
+				        	<?php endif; ?>
+				        		<div class="part-con">
+				        			<h4 class="blog-title"><?php echo get_the_title(); ?></h4>
+				        			<div class="blog-desc"><?php echo wp_trim_words( strip_shortcodes(get_the_content()), 10, '' ); ?></div>
+				        			<div class="blog-meta">Post By: <?php echo get_the_author(); ?></div>
+				        		</div>
+				        		<a href="<?php echo get_the_permalink(); ?>" class="hidden-link">Read More</a>
+				        	</div>					
+							<?php // get_template_part( 'content', get_post_format() ) ?>
 						</div>
 					<?php endwhile;?>						
 				</div>

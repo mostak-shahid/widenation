@@ -17,19 +17,31 @@ function shortcodes_page(){
 	<div class="wrap">
 		<h1>Theme Short Codes</h1>
 		<ol>
+			<li>[home-url slug''] <span class="sdetagils">displays home url</span></li>
 			<li>[site-identity class='' container_class=''] <span class="sdetagils">displays site identity according to theme option</span></li>
 			<li>[site-name link='0'] <span class="sdetagils">displays site name with/without site url</span></li>
 			<li>[copyright-symbol] <span class="sdetagils">displays copyright symbol</span></li>
 			<li>[this-year] <span class="sdetagils">displays 4 digit current year</span></li>
-			<li>[email offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays email from theme option</span></li>
 			<li>[phone offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays phone from theme option</span></li>
 			<li>[fax offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays fax from theme option</span></li>
+			<li>[email offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays email from theme option</span></li>
+			<li>[buseness-hour] <span class="sdetagils">displays Business Hours from theme option</span></li>
+			<li>[address offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays address from theme option</span></li>
 			<li>[social-menu display='inline/block' title='0/1'] <span class="sdetagils">displays social media from theme option</span></li>		
 			<li>[feature-image wrapper_element='div' wrapper_atts='' height='' width=''] <span class="sdetagils">displays feature image</span></li>		
 		</ol>
 	</div>
 	<?php
 }
+
+function home_url_func( $atts = array(), $content = '' ) {
+	$atts = shortcode_atts( array(
+		'slug' => '',
+	), $atts, 'home-url' );
+
+	return home_url( $atts['slug'] );
+}
+add_shortcode( 'home-url', 'home_url_func' );
 function site_identity_func( $atts = array(), $content = null ) {
 	global $widenation_options;
 	$logo_url = ($widenation_options['logo']['url']) ? $widenation_options['logo']['url'] : get_template_directory_uri(). '/images/logo.png';
@@ -238,6 +250,20 @@ function address_func( $atts = array(), $content = '' ) {
 	// do shortcode actions here
 }
 add_shortcode( 'address', 'address_func' );
+function business_hour_func( $atts = array(), $content = '' ) {
+	$html = '';
+	global $widenation_options;
+	$contact_hours = $widenation_options['contact-hour'];
+	if ($contact_hours){
+		$html .= '<ul class="business-houes">';
+		foreach ($contact_hours as $contact_hour) {
+			$html .= '<li>' . $contact_hour . '</li>';
+		}
+		$html .= '</ul>';
+	}
+	return $html;
+}
+add_shortcode( 'business-hour', 'business_hour_func' );
 function social_menu_fnc( $atts = array(), $content = '' ) {
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 	if ( is_plugin_active( 'mos-image-alt/mos-image-alt.php' ) ) {
@@ -336,3 +362,55 @@ function theme_credit_func( $atts = array(), $content = '' ) {
 	return $html = '<a href="'.$atts["url"].'" target="_blank" class="theme-credit">'.$atts["name"].'</a>';
 }
 add_shortcode( 'theme-credit', 'theme_credit_func' );
+
+/**
+ * Returns the parsed shortcode.
+ *
+ * @param array   {
+ *     Attributes of the shortcode.
+ *
+ *     @type string $id ID of...
+ * }
+ * @param string  Shortcode content.
+ *
+ * @return string HTML content to display the shortcode.
+ */
+function mechine_list_func( $atts = array(), $content = '' ) {
+	$atts = shortcode_atts( array(
+		'id' => '',
+	), $atts, 'mechine-list' );
+	$html = '';
+
+	$args = array(
+		'post_type' => 'machine',
+		'posts_per_page' => -1,
+	);
+	if (@$atts['id']) {
+		$args['tax_query'][0]['taxonomy'] = 'machine-category';
+		$args['tax_query'][0]['field'] = 'term_id';
+		$args['tax_query'][0]['terms'] = $atts['id'];
+	}
+	// var_dump($args);
+	$the_query = new WP_Query( $args );	
+	if ( $the_query->have_posts() ) {
+	    $html .= '<div class="row">';
+	    while ( $the_query->have_posts() ) {
+	        $the_query->the_post();
+	        $html .= '<div class="col-lg-6">';
+		        $html .= '<div class="unit p-20 h-100 w-100 position-relative bg-white">';
+		        	if (has_post_thumbnail()){
+						$html .= '<div class="img-part"><img class="img-responsive img-fluid img-bselling" src="'.aq_resize(get_the_post_thumbnail_url(),310,310,true).'" alt="' . get_the_title() . '" width="310" height="310"></div>';
+					}
+					$html .= '<div class="text-part">' . get_the_title() . '</div>';
+					$html .= '<a href="'.get_the_permalink().'" class="hidden-link">Read More</a>';
+				$html .= '</div>';
+			$html .= '</div>';
+	    }
+	    $html .= '</div>';
+	}
+	/* Restore original Post Data */
+	wp_reset_postdata();
+
+	return $html;
+}
+add_shortcode( 'mechine-list', 'mechine_list_func' );
