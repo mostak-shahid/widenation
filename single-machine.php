@@ -33,10 +33,10 @@ $sections = ($from_page_option['Enabled'])?$from_page_option['Enabled']:$from_th
 			<div class="post-linking">
 				<div class="row">
 					<div class="col-md-6 text-left">								
-						<?php previous_post_link("%link", "Previous Post") ; ?>
+						<?php previous_post_link("%link", "Prev") ; ?>
 					</div>
 					<div class="col-md-6 text-right">
-						<?php next_post_link("%link", "Next Post"); ?>
+						<?php next_post_link("%link", "Next"); ?>
 					</div>						
 				</div>
 			</div>

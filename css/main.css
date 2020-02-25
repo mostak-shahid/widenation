@@ -14,6 +14,7 @@ a:visited,a:hover,a:active,a:focus{text-decoration:none}
 .hidden-link{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;filter:alpha(opacity=0)}
 .p-20{padding: 20px;}
 .mb-30{margin-bottom: 30px;}
+div.pdfemb-viewer{margin-bottom: 30px!important;}
 .address-title{display: none;}
 .embed-responsive-300:before {padding-top:300px;}
 span.ajax-loader {position: absolute; right: 15px; }
@@ -143,9 +144,9 @@ span.ajax-loader {position: absolute; right: 15px; }
 #section-contact .form-unit{background-color:#f1f1f2}
 #section-contact .unit-title:after{content: '';display: block;width: 212px;height: 1px;background-color: #000000;margin-top: 20px;margin-bottom: 20px;margin-left: -3.125vw;}
 #section-contact .form-control{height: 50px;}
-#section-contact .form-control.form-quiz{width: 50px;display: inline-block;}
+.form-control.form-quiz{width: 50px;display: inline-block;}
 #section-contact .form-group label{margin-bottom: 0;}
-#section-contact .btn-form{background-color: #2f6776;border-radius: 0;font-weight: 700;font-size: 22px;color: #ffffff;text-transform: uppercase;height: 50px;}
+.btn-form{background-color: #2f6776;border-radius: 0;font-weight: 700;font-size: 22px;color: #ffffff;text-transform: uppercase;height: 50px;}
 #section-contact,#section-contact a{color: #ffffff}
 #section-contact span.ajax-loader{color: #ffffff;top: 17px;}
 .business-houes{list-style: none;padding-left: 0;}
