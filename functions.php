@@ -5,7 +5,7 @@ function disable_mytheme_action() {
 	define('DISALLOW_FILE_EDIT', TRUE);
 	define('DISALLOW_FILE_MODS',true);
 }
-//add_action('init','disable_mytheme_action');
+add_action('init','disable_mytheme_action');
 require_once('functions/theme-init/plugin-update-checker.php');
 $themeInit = Puc_v4_Factory::buildUpdateChecker(
 	'https://raw.githubusercontent.com/mostak-shahid/update/master/widenation.json',
@@ -47,3 +47,4 @@ if (version_compare($GLOBALS['wp_version'], '5.0-beta', '>')) {
     // WP < 5 beta
     add_filter('gutenberg_can_edit_post_type', '__return_false');    
 }
+

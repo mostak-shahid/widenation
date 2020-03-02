@@ -29,7 +29,7 @@ do_action( 'action_avobe_arrivals', $page_details );
 									<div class="col-lg-3 col-md-6 mb-4 wow fadeInDown" data-wow-delay="<?php echo $delay ?>ms">
 										<div class="unit p-20 h-100 w-100 position-relative bg-white text-center">
 										<?php if ($slide['attachment_id']) : ?>
-											<div class="img-part"><img class="img-responsive img-fluid img-arrivals" src="<?php echo aq_resize(wp_get_attachment_url( $slide['attachment_id'] ), 325, 260, true) ?>" alt="<?php echo strip_tags($slide['title']) ?>" width="<?php echo $slide['width']?>" height="<?php echo $slide['height'] ?>"></div>
+											<div class="img-part"><img class="img-responsive img-fluid img-arrivals" src="<?php echo aq_resize(wp_get_attachment_url( $slide['attachment_id'] ), 325, 260, true) ?>" alt="<?php echo strip_tags($slide['title']) ?>" width="325" height="260"></div>
 										<?php endif; ?>
 											<div class="text-part d-block d-md-table w-100 mt-3">
 												<div class="name d-block d-md-table-cell text-md-left"><strong><?php echo do_shortcode( $slide['title'] ); ?></strong></div>
