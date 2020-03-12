@@ -56,7 +56,7 @@ span.ajax-loader {position: absolute; right: 15px; }
 #main-header,header,section,footer,#footer{position:relative}
 #main-header{z-index: 9999;}
 #main-header.tiny{position: fixed!important;width: 100%;top: 0;}
-#topbar .phoneToShow{font-size:22px;font-weight:700;color:#2f6776}
+#topbar .phoneToShow{font-size:12px;font-weight:700;color:#2f6776}
 #topbar .phoneToShow:before{content:"\f095";width:36px;line-height:36px;text-align:center;background-color:#f1f1f2;border-radius:36px;display:inline-block;margin-right:10px}
 #topbar .mailToShow{font-size:16px;color:#222222}
 #topbar .mailToShow:before{font-size:18px;content:"\f0e0";width:36px;line-height:36px;text-align:center;background-color:#f1f1f2;border-radius:36px;display:inline-block;margin-right:10px;color:#2f6776}
@@ -216,7 +216,7 @@ span.ajax-loader {position: absolute; right: 15px; }
 .woo-sidebar .widget > ul ul{padding: 0 0 0 20px}
 .woo-sidebar .widget ul li a{color: #333333;padding: 20px 15px;display: block;}
 .woo-sidebar .widget ul li a:before{display: none;}
-
+.widgets-three .widget.widget_black_studio_tinymce{display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex; align-items: center; justify-content: center; height: 100%; }
 #footer p{margin-bottom:0;font-size:15px}
 #footer .social-list > a {color: #2f6776;}
 #footer .social-list:hover > a {background-color: #5fcae8;}
@@ -239,7 +239,7 @@ span.ajax-loader {position: absolute; right: 15px; }
 	.navbar-nav.mega-menu li .sub-menu > li{display:inline-block;vertical-align:top}
 	.navbar-nav.mega-menu li .sub-menu .sub-menu{position:relative}
 	.navbar-nav.mega-menu li .sub-menu .sub-menu li{display:block}
-	.navbar-nav.mega-menu > li.menu-item-has-children > .sub-menu{padding: 20px;font-size: 17px}
+	.navbar-nav.mega-menu > li.menu-item-has-children > .sub-menu{padding: 20px;font-size: 17px;max-height: calc(100vh - 170px);overflow: auto}
 	.navbar-nav.mega-menu > li.menu-item-has-children > .sub-menu > li > a{font-weight: 700; font-size: 18px}
 	.navbar-nav.mega-menu li.menu-item-has-children:hover > .sub-menu{display:-webkit-flex;
     display:-moz-flex;

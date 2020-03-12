@@ -44,6 +44,7 @@ else $page_id = get_the_ID();
 					</div>
 					<div class="col-lg-4 text-center">
 						<?php echo do_shortcode( "[phone index=1]" ); ?>
+						<?php echo do_shortcode( "[phone index=4]" ); ?>
 					</div>
 					<div class="col-lg-4 text-right">
 						<?php echo do_shortcode( "[email index=1]" ); ?>
@@ -119,19 +120,24 @@ else $page_id = get_the_ID();
 			<?php endif; ?>
 			<div class="content-wrap">
 				<div class="container">
-					<?php 
-					if (is_home()) :
-						$page_for_posts = get_option( 'page_for_posts' );
-					$title = get_the_title($page_for_posts);
-					elseif (is_404()) :
-						$title = '404 Page';
-					elseif (is_shop()) :
-						$title = get_the_title(get_option( 'woocommerce_shop_page_id' ));
-					else :
-						$title = get_the_title();
-					endif; 
-					?>
-					<span class="heading"><?php echo $title ?></span>
+					<div class="row">
+						<div class="col-md-6">
+							<?php 
+							if (is_home()) :
+								$page_for_posts = get_option( 'page_for_posts' );
+							$title = get_the_title($page_for_posts);
+							elseif (is_404()) :
+								$title = '404 Page';
+							elseif (is_shop()) :
+								$title = get_the_title(get_option( 'woocommerce_shop_page_id' ));
+							else :
+								$title = get_the_title();
+							endif; 
+							?>
+							<span class="heading"><?php echo $title ?></span>							
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</section>

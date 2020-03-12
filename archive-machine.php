@@ -76,7 +76,7 @@ $machine_categories = mos_get_terms ("machine-category");
 							<ul class="product-categories">
 							<?php foreach($machine_categories as $machine_category) : ?>
 								<li class="cat-item cat-item-<?php echo $machine_category['term_id'] ?> <?php if ($current_term_id == $machine_category['term_id']) echo 'current-cat' ?>">
-									<a href="http://widenati.aiscript.net/machine-category/<?php echo $machine_category['slug'] ?>/"><?php echo $machine_category['name'] ?></a>
+									<a href="<?php echo home_url(); ?>/machine-category/<?php echo $machine_category['slug'] ?>/"><?php echo $machine_category['name'] ?></a>
 								</li>
 							<?php endforeach; ?>
 							</ul>

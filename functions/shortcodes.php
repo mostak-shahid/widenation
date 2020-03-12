@@ -414,3 +414,25 @@ function mechine_list_func( $atts = array(), $content = '' ) {
 	return $html;
 }
 add_shortcode( 'mechine-list', 'mechine_list_func' );
+
+function fancybox_iframe_func( $atts = array(), $content = '' ) {
+	$html = '';
+	$atts = shortcode_atts( array(
+		'urls' => '',
+		'images' => '',
+		'grid' => '3'
+	), $atts, 'fancybox-iframe' );
+	if (@$atts['urls']) :
+		$urls = explode(',', $atts['urls']);
+		$html .= '<div class="row">';
+			foreach($urls as $url):
+			$html .= '<div class="col-md-4 text-center mb-3">';
+			$html .= '<a data-fancybox="iframe-gallery" href="'.$url.'"><i class="fa fa-file-pdf-o fa-5x"></i></a>';
+			$html .= '</div>';
+			endforeach;
+		$html .= '</div>';
+	endif;
+	return $html;
+
+}
+add_shortcode( 'fancybox-iframe', 'fancybox_iframe_func' );

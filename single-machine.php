@@ -1,8 +1,5 @@
 <?php 
 global $widenation_options;
-$from_theme_option = $widenation_options['archive-page-sections'];
-$from_page_option = get_post_meta( get_the_ID(), '_widenation_page_section_layout', true );
-$sections = ($from_page_option['Enabled'])?$from_page_option['Enabled']:$from_theme_option['Enabled'];
 ?><?php get_header() ?>
 <section id="blogs" class="page-content <?php if(@$widenation_options['sections-content-background-type'] == 1) echo @$widenation_options['sections-content-background'];?>">
 	<div class="content-wrap">
